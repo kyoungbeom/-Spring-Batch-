@@ -7,3 +7,10 @@
 2. 유료 API 사용 내역을 파일로 정산팀에 전달한다. (임시 랜덤 데이터 생성)
 3. 정산팀은 1일 단위로 정산을 한다.
 4. 매주 금요일에는 일주일 치 하루 정산을 집계해서 DB에 저장하고 고객사에 이메일을 발송한다.
+
+
+### 일일정산배치 예시 화면
+![image](https://github.com/user-attachments/assets/f63ba61e-8487-4661-893b-ee23c20e0903)
+
+### 주간정산배치 예시 화면
+![image](https://github.com/user-attachments/assets/78296c8f-2c46-45dc-ab04-443d0b8ff6bd)
