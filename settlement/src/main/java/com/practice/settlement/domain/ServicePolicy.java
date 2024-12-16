@@ -2,6 +2,8 @@ package com.practice.settlement.domain;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @Getter
 public enum ServicePolicy {
 
@@ -40,6 +42,20 @@ public enum ServicePolicy {
         this.id = id;
         this.url = url;
         this.fee = fee;
+    }
+
+    public static ServicePolicy findByUrl(String url) {
+        return Arrays.stream(values())
+                .filter(it -> it.url.equals(url))
+                .findFirst()
+                .orElseThrow();
+    }
+
+    public static ServicePolicy findById(Long id) {
+        return Arrays.stream(values())
+                .filter(it -> it.id.equals(id))
+                .findFirst()
+                .orElseThrow();
     }
 
 }

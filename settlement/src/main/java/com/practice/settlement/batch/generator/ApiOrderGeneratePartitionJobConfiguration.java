@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class ApiOrderGeneratePartitionJobConfiguration {
 
@@ -72,7 +72,7 @@ public class ApiOrderGeneratePartitionJobConfiguration {
         return taskExecutorPartitionHandler;
     }
 
-    // worker step을 위해 StepExecution을 생성하는 인터페이스
+//  worker step을 위해 StepExecution을 생성하는 인터페이스
     Partitioner getPartitioner(String targetDate) {
         final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         final LocalDate date = LocalDate.parse(targetDate, formatter);
@@ -101,8 +101,8 @@ public class ApiOrderGeneratePartitionJobConfiguration {
             ApiOrderGenerateProcessor apiOrderGenerateProcessor
     ) {
         return new StepBuilder("apiOrderGenerateStep", jobRepository)
-                // chunkSize를 설정할때는 성능과 안정성 둘을 고려하여 적절한 값을 선택해야한다.
-                // chunkSize가 커지면 성능은 좋아지겠지만, 그만큼 에러가 발생했을대 rollback 해야하는 데이터가 많아진다.
+//               chunkSize를 설정할때는 성능과 안정성 둘을 고려하여 적절한 값을 선택해야한다.
+//               chunkSize가 커지면 성능은 좋아지겠지만, 그만큼 에러가 발생했을대 rollback 해야하는 데이터가 많아진다.
                 .<Boolean, ApiOrder>chunk(1000, platformTransactionManager)
                 .reader(apiOrderGenerateReader)
                 .processor(apiOrderGenerateProcessor)
